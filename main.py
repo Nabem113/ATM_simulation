@@ -20,7 +20,7 @@ current = Button(root, text="Current", width=7, height=2, bg='#87CEEB', fg='red'
 exit = Button(root, text='EXIT', width=7, height=2, fg="red")
 
 #On-screen positioning - buttons
-exit.pack(side=RIGHT)
+exit.pack(side=RIGHT, padx=10)
 saving.pack(side=RIGHT, padx=10, pady=80)
 current.pack(side=RIGHT, padx=10, pady=80)
 
