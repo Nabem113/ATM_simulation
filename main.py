@@ -6,16 +6,34 @@ root.title('ATM')
 # root.attributes('-fullscreen', True)
 root.geometry("400x240")
 
+
+# User Operation window
+def user_operation():
+    enter_pin.new_root.withdraw()
+
+    user_operation.new_root = Toplevel(root)
+    user_operation.new_root.geometry('460x390')
+
+    # labels and buttons
+    withdraw_btn = Button(user_operation.new_root, text='WITHDRAWAL', fg='red', bg='sky blue')
+    bal_btn = Button(user_operation.new_root, text='BALANCE INQ', fg='red', bg='sky blue')
+    exit_btn = Button(user_operation.new_root, text='EXIT', fg='red', bg='sky blue')
+
+    # Putting buttons and screen
+    withdraw_btn.pack(padx=40, pady=10)
+    bal_btn.pack(padx=40, pady=10)
+    exit_btn.pack(padx=40, pady=10)
+
+
 # *Pin verification window*
 def enter_pin():
-
     root.withdraw()
 
     enter_pin.new_root = Toplevel(root)
-    #enter_pin.geometry('460x390')
 
+    # enter_pin.geometry('460x390')
 
-# Button functions
+    # Button functions
     def input_text(text):
         entry_box.insert('end', text)
 
@@ -37,7 +55,7 @@ def enter_pin():
     btn9 = Button(enter_pin.new_root, text='9', pady=15, padx=30, font='cour15', command=lambda: input_text('9'))
     btn0 = Button(enter_pin.new_root, text='0', pady=15, padx=30, font='cour15', command=lambda: input_text('0'))
     btn_clear = Button(enter_pin.new_root, pady=15, padx=30, font='cour15', text='⌫', command=back_space)
-    btn_enter = Button(enter_pin.new_root, pady=15, padx=30, font='cour15', text='↵')
+    btn_enter = Button(enter_pin.new_root, pady=15, padx=30, font='cour15', text='↵', command=user_operation)
 
     # Labels and buttons on screen
     lbl.grid(row=1, columnspan=3, column=0)
@@ -59,6 +77,7 @@ def enter_pin():
     btn0.grid(row=6, column=1)
     btn_enter.grid(row=6, column=2)
 
+
 # *Opening window*
 
 # labels
@@ -69,7 +88,7 @@ intro = Label(root, text="Welcome", fg='blue')
 option_text = Label(root, text='Select your account type', fg='blue')
 
 
-#defining functions
+# defining functions
 def exit_func():
     root.destroy()
 
@@ -87,6 +106,5 @@ current.pack(side=RIGHT, padx=10, pady=80)
 # On-screen positioning - labels
 intro.pack()
 title_label.pack(pady=10)
-
 
 root.mainloop()
