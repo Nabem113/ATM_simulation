@@ -15,14 +15,20 @@ def user_operation():
     user_operation.new_root.geometry('460x390')
 
     # labels and buttons
-    withdraw_btn = Button(user_operation.new_root, text='WITHDRAWAL', fg='red', bg='sky blue')
-    bal_btn = Button(user_operation.new_root, text='BALANCE INQ', fg='red', bg='sky blue')
-    exit_btn = Button(user_operation.new_root, text='EXIT', fg='red', bg='sky blue')
+    lbl_font_settings = "MS Sans Serif", 35, "bold"
+    text_title = Label(user_operation.new_root, text='ATM', font=lbl_font_settings)
+    note_lbl = Label(user_operation.new_root, text='Select desired operation', fg='red')
+    withdraw_btn = Button(user_operation.new_root, text='WITHDRAWAL', width=12, height=2,  fg='red', bg='sky blue')
+    bal_btn = Button(user_operation.new_root, text='BALANCE INQ', width=12, height=2,  fg='red', bg='sky blue')
+    exit_btn = Button(user_operation.new_root, text='EXIT', width=12, height=2,  fg='red')
 
     # Putting buttons and screen
-    withdraw_btn.pack(padx=40, pady=10)
-    bal_btn.pack(padx=40, pady=10)
-    exit_btn.pack(padx=40, pady=10)
+    text_title.pack()
+    note_lbl.pack(side=BOTTOM, pady=10)
+    exit_btn.pack(side=RIGHT, padx=10)
+    withdraw_btn.pack(side=RIGHT, padx=10, pady=80)
+    bal_btn.pack(side=RIGHT, padx=10, pady=80)
+
 
 
 # *Pin verification window*
