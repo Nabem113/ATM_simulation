@@ -8,7 +8,7 @@ root.title('ATM')
 root.geometry("400x240")
 
 
-# *withdrawal window*
+# withdraw section
 
 def no():
     root.destroy()
@@ -24,7 +24,7 @@ def confirmation():
     yes_btn = Button(confirmation.new_root, width=7, height=2, text='YES', fg='green')
     no_btn = Button(confirmation.new_root, width=7, height=2, text=' NO ', fg='red', command=no)
 
-    # On screen
+
     no_btn.pack(side=RIGHT, pady=10, padx=10)
     yes_btn.pack(side=RIGHT, pady=10)
     msg_box.pack()
@@ -36,11 +36,11 @@ def withdrawal():
     withdrawal.new_root = Toplevel(root)
     withdrawal.new_root.geometry('460x390')
 
-    # labels and entry
+
     prompt_lbl = Label(withdrawal.new_root, text='\nPlease enter amount\n', fg="red")
     amount_entry = Entry(withdrawal.new_root, justify='center')
 
-    # Buttons
+
 
     bf = Frame(withdrawal.new_root)
     bf.pack(side=BOTTOM)
@@ -73,7 +73,7 @@ def withdrawal():
     btn_enter = Button(bf4, text='↵', width=12, height=2, fg='green', command=confirmation)
     clear_btn = Button(bf4, text='⌫', fg='orange', width=12, height=2,  command=lambda: amount_entry.delete(1))
 
-    # On-screen placement
+
     amount_entry.pack()
     prompt_lbl.pack()
     b1.pack(side=LEFT, pady=10)
@@ -90,14 +90,14 @@ def withdrawal():
     btn_enter.pack(side=LEFT)
 
 
-# User Operation window
+
 def user_operation():
     enter_pin.new_root.withdraw()
 
     user_operation.new_root = Toplevel(root)
     user_operation.new_root.geometry('460x390')
 
-    # labels and buttons
+
     lbl_font_settings = "MS Sans Serif", 35, "bold"
     text_title = Label(user_operation.new_root, text='ATM', font=lbl_font_settings)
     note_lbl = Label(user_operation.new_root, text='Select desired operation', fg='red')
@@ -105,7 +105,7 @@ def user_operation():
     bal_btn = Button(user_operation.new_root, text='BALANCE INQ', width=12, height=2, fg='red', bg='sky blue')
     exit_btn = Button(user_operation.new_root, text='EXIT', width=12, height=2, fg='red')
 
-    # Putting buttons and screen
+
     text_title.pack()
     note_lbl.pack(side=BOTTOM, pady=10)
     exit_btn.pack(side=RIGHT, padx=10)
@@ -113,22 +113,22 @@ def user_operation():
     bal_btn.pack(side=RIGHT, padx=10, pady=80)
 
 
-# *Pin verification window*
+
 def enter_pin():
     root.withdraw()
 
     enter_pin.new_root = Toplevel(root)
 
-    # enter_pin.geometry('460x390')
 
-    # Button functions
+
+
     def input_text(text):
         entry_box.insert('end', text)
 
     def back_space():
         entry_box.delete(0)
 
-    # labels and buttons
+
     lbl = Label(enter_pin.new_root, text='Enter your PIN', fg="red")
     entry_box = Entry(enter_pin.new_root, show="*")
 
@@ -145,7 +145,7 @@ def enter_pin():
     btn_clear = Button(enter_pin.new_root, pady=15, padx=30, font='cour15', text='⌫', command=back_space)
     btn_enter = Button(enter_pin.new_root, pady=15, padx=30, font='cour15', text='↵', command=user_operation)
 
-    # Labels and buttons on screen
+
     lbl.grid(row=1, columnspan=3, column=0)
     entry_box.grid(row=2, columnspan=3, column=0)
 
@@ -166,35 +166,31 @@ def enter_pin():
     btn_enter.grid(row=6, column=2)
 
 
-# *Opening window*
-
-# labels
-
 font_settings = "MS Sans Serif", 20, "bold"
 title_label = Label(root, text="ATM Terminal", font=font_settings, fg='red')
 intro = Label(root, text="Welcome", fg='blue')
 option_text = Label(root, text='Select your account type', fg='blue')
 
 
-# defining functions
+
 def exit_func():
     root.destroy()
 
 
-# buttons
+
 saving = Button(root, text="Savings", width=7, height=2, bg="#87CEEB", fg='red', command=enter_pin)
 current = Button(root, text="Current", width=7, height=2, bg='#87CEEB', fg='red', command=enter_pin)
 exit = Button(root, text='EXIT', width=7, height=2, fg="red", command=exit_func)
 
-# Set background color
+# the bg color
 root.configure(bg='sky blue')
 
-# On-screen positioning - buttons
+
 exit.pack(side=RIGHT, padx=10)
 saving.pack(side=RIGHT, padx=10, pady=80)
 current.pack(side=RIGHT, padx=10, pady=80)
 
-# On-screen positioning - labels
+
 intro.pack()
 title_label.pack(pady=10)
 
@@ -205,14 +201,13 @@ def deposit():
     deposit.new_root = Toplevel(root)
     deposit.new_root.geometry('460x390')
 
-    # labels and entry
+
     prompt_lbl = Label(deposit.new_root, text='\nPlease enter amount\n', fg="red")
     amount_entry = Entry(deposit.new_root, justify='center')
 
     def confirm_deposit():
         amount = float(amount_entry.get())
-        # Perform the deposit operation here
-        # You can call the corresponding methods of the Account class or perform the necessary logic
+
 
         deposit.new_root.withdraw()
 
@@ -225,7 +220,7 @@ def deposit():
         confirmation_lbl.pack(pady=80)
         return_btn.pack()
 
-    # Buttons
+
     bf = Frame(deposit.new_root)
     bf.pack(side=BOTTOM)
 
@@ -257,7 +252,7 @@ def deposit():
     btn_enter = Button(bf4, text='↵', width=12, height=2, fg='green', command=confirm_deposit)
     clear_btn = Button(bf4, text='⌫', fg='orange', width=12, height=2, command=lambda: amount_entry.delete(1))
 
-    # On-screen placement
+
     amount_entry.pack()
     prompt_lbl.pack()
     b1.pack(side=LEFT, pady=10)
@@ -273,7 +268,6 @@ def deposit():
     b0.pack(side=LEFT, padx=10)
     btn_enter.pack(side=LEFT)
 
-# User Operation window
 def user_operation():
     enter_pin.new_root.withdraw()
 
@@ -303,8 +297,7 @@ def check_balance():
     check_balance.new_root = Toplevel(root)
     check_balance.new_root.geometry('460x390')
 
-    # Retrieve the account balance here
-    # You can call the corresponding method of the Account class or access the account balance variable
+
 
     balance_lbl = Label(check_balance.new_root, text=f'Your balance is: {account.balance}', fg='blue')
     return_btn = Button(check_balance.new_root, text='RETURN', width=12, height=2, fg='red', command=user_operation)
