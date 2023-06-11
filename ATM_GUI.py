@@ -1,10 +1,93 @@
 from tkinter import *
+from account import Account
 from tkinter import font
 
 root = Tk()
 root.title('ATM')
 # root.attributes('-fullscreen', True)
 root.geometry("400x240")
+
+
+# *withdrawal window*
+
+def no():
+    root.destroy()
+
+def confirmation():
+
+    withdrawal.new_root.withdraw()
+
+    confirmation.new_root = Toplevel(root)
+    confirmation.new_root.geometry('460x390')
+
+    msg_box = Message(confirmation.new_root, text='\nYour transaction has been successful\n\nPlease collect your money\n\nYou can remove your card\n\nDo you want to check your balance?', justify='center', fg='blue')
+    yes_btn = Button(confirmation.new_root, width=7, height=2, text='YES', fg='green')
+    no_btn = Button(confirmation.new_root, width=7, height=2, text=' NO ', fg='red', command=no)
+
+    # On screen
+    no_btn.pack(side=RIGHT, pady=10, padx=10)
+    yes_btn.pack(side=RIGHT, pady=10)
+    msg_box.pack()
+
+
+def withdrawal():
+    user_operation.new_root.withdraw()
+
+    withdrawal.new_root = Toplevel(root)
+    withdrawal.new_root.geometry('460x390')
+
+    # labels and entry
+    prompt_lbl = Label(withdrawal.new_root, text='\nPlease enter amount\n', fg="red")
+    amount_entry = Entry(withdrawal.new_root, justify='center')
+
+    # Buttons
+
+    bf = Frame(withdrawal.new_root)
+    bf.pack(side=BOTTOM)
+
+    bf4 = Frame(withdrawal.new_root)
+    bf4.pack(side=BOTTOM)
+
+    bf3 = Frame(withdrawal.new_root)
+    bf3.pack(side=BOTTOM)
+
+    bf3 = Frame(withdrawal.new_root)
+    bf3.pack(side=BOTTOM)
+
+    bf2 = Frame(withdrawal.new_root)
+    bf2.pack(side=BOTTOM)
+
+    bf1 = Frame(withdrawal.new_root)
+    bf1.pack(side=BOTTOM)
+
+    b1 = Button(bf1, text='1', width=12, height=2, command=lambda: amount_entry.insert('end', '1'))
+    b2 = Button(bf1, text='2', width=12, height=2, command=lambda: amount_entry.insert('end', '2'))
+    b3 = Button(bf1, text='3', width=12, height=2,  command=lambda: amount_entry.insert('end', '3'))
+    b4 = Button(bf2, text='4', width=12, height=2,  command=lambda: amount_entry.insert('end', '4'))
+    b5 = Button(bf2, text='5', width=12, height=2,  command=lambda: amount_entry.insert('end', '5'))
+    b6 = Button(bf2, text='6', width=12, height=2,  command=lambda: amount_entry.insert('end', '6'))
+    b7 = Button(bf3, text='7', width=12, height=2, command=lambda: amount_entry.insert('end', '7'))
+    b8 = Button(bf3, text='8', width=12, height=2,  command=lambda: amount_entry.insert('end', '8'))
+    b9 = Button(bf3, text='9', width=12, height=2,  command=lambda: amount_entry.insert('end', '9'))
+    b0 = Button(bf4, text='0', width=12, height=2,  command=lambda: amount_entry.insert('end', '0'))
+    btn_enter = Button(bf4, text='↵', width=12, height=2, fg='green', command=confirmation)
+    clear_btn = Button(bf4, text='⌫', fg='orange', width=12, height=2,  command=lambda: amount_entry.delete(1))
+
+    # On-screen placement
+    amount_entry.pack()
+    prompt_lbl.pack()
+    b1.pack(side=LEFT, pady=10)
+    b2.pack(side=LEFT, padx=10)
+    b3.pack(side=LEFT)
+    b4.pack(side=LEFT)
+    b5.pack(side=LEFT, padx=10)
+    b6.pack(side=LEFT)
+    b7.pack(side=LEFT, pady=10)
+    b8.pack(side=LEFT, padx=10)
+    b9.pack(side=LEFT)
+    clear_btn.pack(side=LEFT)
+    b0.pack(side=LEFT, padx=10)
+    btn_enter.pack(side=LEFT)
 
 
 # User Operation window
@@ -18,9 +101,9 @@ def user_operation():
     lbl_font_settings = "MS Sans Serif", 35, "bold"
     text_title = Label(user_operation.new_root, text='ATM', font=lbl_font_settings)
     note_lbl = Label(user_operation.new_root, text='Select desired operation', fg='red')
-    withdraw_btn = Button(user_operation.new_root, text='WITHDRAWAL', width=12, height=2,  fg='red', bg='sky blue')
-    bal_btn = Button(user_operation.new_root, text='BALANCE INQ', width=12, height=2,  fg='red', bg='sky blue')
-    exit_btn = Button(user_operation.new_root, text='EXIT', width=12, height=2,  fg='red')
+    withdraw_btn = Button(user_operation.new_root, text='WITHDRAWAL', width=12, height=2, fg='red', bg='sky blue', command=withdrawal)
+    bal_btn = Button(user_operation.new_root, text='BALANCE INQ', width=12, height=2, fg='red', bg='sky blue')
+    exit_btn = Button(user_operation.new_root, text='EXIT', width=12, height=2, fg='red')
 
     # Putting buttons and screen
     text_title.pack()
@@ -28,7 +111,6 @@ def user_operation():
     exit_btn.pack(side=RIGHT, padx=10)
     withdraw_btn.pack(side=RIGHT, padx=10, pady=80)
     bal_btn.pack(side=RIGHT, padx=10, pady=80)
-
 
 
 # *Pin verification window*
