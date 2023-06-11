@@ -10,8 +10,26 @@ root.geometry("400x240")
 
 # *withdrawal window*
 
+def balance():
+    user_operation.new_root.withdraw()
+
+    balance.new_root = Toplevel(root)
+    balance.new_root.geometry('460x390')
+
+    account_balance = 100000
+    lbl_font_settings = "MS Sans Serif", 35, "bold"
+    text_title = Label(balance.new_root, text='BALANCE ENQUIRY', font=lbl_font_settings)
+    note_lbl = Label(balance.new_root, text=f'YOUR ACCOUNT BALANCE IS:  {account_balance}')
+    exit_btn = Button(balance.new_root, text='EXIT', width=14, height=3, fg='red')
+
+    text_title.pack()
+    note_lbl.pack(side=TOP, padx=15, pady=15)
+    exit_btn.pack(side=BOTTOM, padx=10, pady=10)
+
+
 def no():
     root.destroy()
+
 
 def confirmation():
 
