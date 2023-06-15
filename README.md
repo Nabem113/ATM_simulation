@@ -1,41 +1,16 @@
-from tkinter import *
-from tkinter import font
+#Opening window
+![Screenshot 2023-06-12 005637](https://github.com/Nabem113/ATM_simulation/assets/130344506/475a75eb-5f38-4020-8e1f-8339fb4bc2bf)
 
-root = Tk()
-root.title('ATM')
-# root.attributes('-fullscreen', True)
-root.geometry("400x240")
+#User-authentication/pin
+![Screenshot 2023-06-12 005717](https://github.com/Nabem113/ATM_simulation/assets/130344506/38775ba2-efbd-4caf-b6da-ea6c1d00b05a)
 
+# User Operation window
+![Screenshot 2023-06-12 005936](https://github.com/Nabem113/ATM_simulation/assets/130344506/37ce080a-9ba2-4c6b-9484-f7dd5831e563)
 
+# Withdrawal Operation
+![Screenshot 2023-06-12 005800](https://github.com/Nabem113/ATM_simulation/assets/130344506/ddb7c641-c264-4488-979b-0e9ec5530691)
+.
+![Screenshot 2023-06-12 005829](https://github.com/Nabem113/ATM_simulation/assets/130344506/61265fa2-8a34-4ee6-b33e-d1569f6dbcb3)
 
-
-
-
-# labels
-
-font_settings = "MS Sans Serif", 20, "bold"
-title_label = Label(root, text="ATM Terminal", font=font_settings, fg='red')
-intro = Label(root, text="Welcome", fg='blue')
-option_text = Label(root, text='Select your account type', fg='blue')
-
-
-# defining functions
-def exit_func():
-    root.destroy()
-
-
-# buttons
-Deposit = Button(root, text="Deposit", width=7, height=2, bg="#87CEEB", fg='red', )
-Withdraw = Button(root, text="Withdraw", width=7, height=2, bg='#87CEEB', fg='red',)
-exit = Button(root, text='EXIT', width=7, height=2, fg="red", command=exit_func)
-
-# On-screen positioning - buttons
-exit.pack(side=RIGHT, padx=10)
-saving.pack(side=RIGHT, padx=10, pady=80)
-current.pack(side=RIGHT, padx=10, pady=80)
-
-# On-screen positioning - labels
-intro.pack()
-title_label.pack(pady=10)
-
-root.mainloop()
+#Balance enquiry
+![Screenshot 2023-06-12 005901](https://github.com/Nabem113/ATM_simulation/assets/130344506/0ee3ade8-cc1a-4e15-8bec-2d66e2cda648)
